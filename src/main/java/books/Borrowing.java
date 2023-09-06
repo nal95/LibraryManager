@@ -7,8 +7,8 @@ import java.time.LocalDate;
 public class Borrowing {
     private Book book;
     private User user;
-    private LocalDate borrowingDate;
-    private LocalDate expectedReturnDate;
+    private final LocalDate borrowingDate;
+    private final LocalDate expectedReturnDate;
 
     public Borrowing(Book book, User user) {
         book.borrowed();

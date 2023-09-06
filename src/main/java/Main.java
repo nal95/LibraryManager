@@ -7,7 +7,7 @@ public class Main {
         LibraryManager library = LibraryManager.getInstance();
 
         Book book1 = new Book("Le Seigneur des Anneaux", "J.R.R. Tolkien", 1954, "978-2-266-11111-2");
-        Book book2 = new Book("1984", "George Orwell", 1949, "978-0-452-28423-4");;
+        Book book2 = new Book("1984", "George Orwell", 1949, "978-0-452-28423-4");
         Book book3 = new Book("Harry Potter et la pierre philosophale", "J.K. Rowling", 1997, "978-2-266-12345-6");
         Book book4 = new Book("Le Petit Prince", "Antoine de Saint-Exupéry", 1943, "978-0-452-28456-7");
 

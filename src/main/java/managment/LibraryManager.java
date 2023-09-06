@@ -10,8 +10,8 @@ import java.util.stream.Collectors;
 
 public class LibraryManager {
     private static LibraryManager instance;
-    private List<Borrowing> borrowingsInProgress;
-    private List<Book> books;
+    private final List<Borrowing> borrowingsInProgress;
+    private final List<Book> books;
 
     private LibraryManager() {
         borrowingsInProgress = new ArrayList<>();
@@ -71,9 +71,7 @@ public class LibraryManager {
     }
 
     public List<Book> getBooks() {
-        books.forEach(book -> {
-            System.out.println( '\n' + book.toString());
-        });
+        books.forEach(book -> System.out.println( '\n' + book.toString()));
 
         return books;
     }
@@ -90,9 +88,7 @@ public class LibraryManager {
             return  null;
 
         } else {
-            books.forEach(book -> {
-                System.out.println("Book:  " + book.getTitle() + "\nAuthor: " + book.getAuthor());
-            });
+            books.forEach(book -> System.out.println("Book:  " + book.getTitle() + "\nAuthor: " + book.getAuthor()));
             return books;
         }
     }
