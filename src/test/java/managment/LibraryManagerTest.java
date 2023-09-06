@@ -31,9 +31,7 @@ public class LibraryManagerTest {
         book = null;
     }
 
-
     @Test
-
     public void getInstance() {
         LibraryManager instanceOne = LibraryManager.getInstance();
 
