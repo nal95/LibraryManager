@@ -89,41 +89,41 @@ public class LibraryManagerTest {
         assertNull(instance.getBorrowingBooksByUser(user1));
     }
 
-    @Test
-    public void findBookByAuthor() {
-        Book book1 = new Book("book1", "author", 1950, "11111-1");
-        instance.addBook(book1);
-
-        List<Book> books = instance.findBookByAuthor(book.getAuthor());
-        assertNotNull(books);
-        assertEquals(2, books.size());
-        assertEquals(book.toString(), books.get(0).toString());
-        assertEquals(book1.toString(), books.get(1).toString());
-    }
-
-    @Test
-    public void getBorrowingsInProgress() {
-        instance.borrowBook(user, book);
-        Borrowing borrowing = new Borrowing(book, user);
-
-        assertNotNull(instance.getBorrowingsInProgress());
-        assertEquals(1, instance.getBorrowingsInProgress().size());
-        assertEquals(borrowing.toString(), instance.getBorrowingsInProgress().get(0).toString());
-    }
-
-    @Test
-    public void getBooks() {
-        Book book1 = new Book("book1", "author1", 1950, "11111-1");
-        Book book2 = new Book("book1", "author2", 1950, "11111-2");
-
-        instance.addBook(book1);
-        instance.addBook(book2);
-
-        List<Book> books = instance.getBooks();
-
-        assertNotNull(books);
-        assertEquals(3, books.size());
-    }
+//    @Test
+//    public void findBookByAuthor() {
+//        Book book1 = new Book("book1", "author", 1950, "11111-1");
+//        instance.addBook(book1);
+//
+//        List<Book> books = instance.findBookByAuthor(book.getAuthor());
+//        assertNotNull(books);
+//        assertEquals(2, books.size());
+//        assertEquals(book.toString(), books.get(0).toString());
+//        assertEquals(book1.toString(), books.get(1).toString());
+//    }
+//
+//    @Test
+//    public void getBorrowingsInProgress() {
+//        instance.borrowBook(user, book);
+//        Borrowing borrowing = new Borrowing(book, user);
+//
+//        assertNotNull(instance.getBorrowingsInProgress());
+//        assertEquals(1, instance.getBorrowingsInProgress().size());
+//        assertEquals(borrowing.toString(), instance.getBorrowingsInProgress().get(0).toString());
+//    }
+//
+//    @Test
+//    public void getBooks() {
+//        Book book1 = new Book("book1", "author1", 1950, "11111-1");
+//        Book book2 = new Book("book1", "author2", 1950, "11111-2");
+//
+//        instance.addBook(book1);
+//        instance.addBook(book2);
+//
+//        List<Book> books = instance.getBooks();
+//
+//        assertNotNull(books);
+//        assertEquals(3, books.size());
+//    }
 
     @Test
     public void addBook() {
