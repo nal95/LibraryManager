@@ -1,18 +1,18 @@
 package users;
 
 public class User {
-    private static final int uuid = 1000;
+    private static int uuid = 1000;
 
     private String firstName;
-
     private String lastName;
-
-    private int  id;
+    private final int  id;
 
     public User(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.id += uuid;
+        uuid++;
+        this.id = uuid;
+
     }
 
     public String getFirstName() {

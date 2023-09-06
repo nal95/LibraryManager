@@ -11,10 +11,12 @@ public class Borrowing {
     private LocalDate expectedReturnDate;
 
     public Borrowing(Book book, User user) {
+        book.borrowed();
         this.book = book;
         this.user = user;
         this.borrowingDate = LocalDate.now();
         this.expectedReturnDate = borrowingDate.plusDays(30);
+
     }
 
     public Book getBook() {

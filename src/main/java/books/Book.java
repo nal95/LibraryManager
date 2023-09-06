@@ -4,16 +4,16 @@ public class Book {
 
     private String title;
     private String author;
-
     private int publicationYear;
-
     private String ISBN;
+    private boolean isBorrowed;
 
     public Book( String title, String author, int publicationYear, String ISBN){
         this.title = title;
         this.author = author;
         this.publicationYear = publicationYear;
         this.ISBN = ISBN;
+        this.isBorrowed = false;
     }
 
     public String getTitle() {
@@ -44,17 +44,30 @@ public class Book {
         return ISBN;
     }
 
+    public boolean isBorrowed() {
+        return this.isBorrowed;
+    }
+
+    public void borrowed() {
+        this.isBorrowed = true;
+    }
+
+    public void returned() {
+        this.isBorrowed = false;
+    }
+
     public void setISBN(String ISBN) {
         this.ISBN = ISBN;
     }
 
     @Override
     public String toString() {
-        return "Book{" +
-                "title='" + title + '\'' +
+        return "Book {" +
+                " title='" + title + '\'' +
                 ", author='" + author + '\'' +
                 ", publicationYear='" + publicationYear + '\'' +
                 ", ISBN='" + ISBN + '\'' +
-                '}';
+                ", is borrowed='" + isBorrowed + '\'' +
+                " }";
     }
 }

@@ -32,10 +32,10 @@ public class LibraryManager {
 
         if (borrowing != null) {
             // Supprimez l'emprunt de la liste des emprunts en cours
+            book.returned();
             borrowingsInProgress.remove(borrowing);
 
             // Effectuez d'autres opérations, par exemple, mettre à jour la date de retour réelle, etc.
-
             System.out.println(user.getLastName() + " returned the book : " + book.getTitle());
         } else {
             System.out.println("No borrowing found for " + user.getLastName() + " and the book " + book.getTitle());
@@ -45,7 +45,7 @@ public class LibraryManager {
     public void borrowBook(User user, Book book) {
         if (checkBookAvailiability(book) == null) {
 
-            System.out.println("Book " + book.getTitle() + " is not available in how Library");
+            System.out.println("Book " + book.getTitle() + " is not available in our  Library");
 
         } else if (findBorrowing(user, book) != null) {
 
@@ -56,7 +56,7 @@ public class LibraryManager {
             Borrowing borrowing = new Borrowing(book, user);
             borrowingsInProgress.add(borrowing);
             books.remove(book);
-            System.out.println("Book " + book.getTitle() + " has just been hired from " + user.getLastName() + "." + "\nTo be delivered on :" + borrowing.getExpectedReturnDate());
+            System.out.println("Book " + book.getTitle() + " has just been hired from " + user.getLastName() + "." + "\nTo be delivered on : " + borrowing.getExpectedReturnDate());
         }
     }
 
@@ -71,20 +71,29 @@ public class LibraryManager {
     }
 
     public List<Book> getBooks() {
+        books.forEach(book -> {
+            System.out.println( '\n' + book.toString());
+        });
+
         return books;
     }
 
+    public void addBook(Book book){
+        books.add(book);
+    }
 
-    public void getBorrowingBooksByUser(User user) {
+    public List<Book> getBorrowingBooksByUser(User user) {
         List<Book> books = findBorrowingBooksByUser(user);
         if (books.isEmpty()) {
 
             System.out.println("User " + user.getLastName() + " has not borrowed any books");
+            return  null;
 
         } else {
             books.forEach(book -> {
-                System.out.println("Book:  " + book.getTitle() + "\n Author: " + book.getAuthor());
+                System.out.println("Book:  " + book.getTitle() + "\nAuthor: " + book.getAuthor());
             });
+            return books;
         }
     }
 
